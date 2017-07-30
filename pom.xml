@@ -4,12 +4,15 @@
     <groupId>com.saman.sandbox</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${projectVersion}</version>
     <modules>
         <module>ds</module>
+        <module>dsamej</module>
+        <module>problems</module>
     </modules>
 
     <properties>
+        <projectVersion>1.0-SNAPSHOT</projectVersion>
         <junitVersion>4.12</junitVersion>
     </properties>
 
