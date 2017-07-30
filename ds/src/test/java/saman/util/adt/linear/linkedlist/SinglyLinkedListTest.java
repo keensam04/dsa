@@ -65,32 +65,32 @@ public class SinglyLinkedListTest {
         assertFalse(linkedList.isEmpty());
         assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> 5 -> <end>", linkedList.toString());
 
-        linkedList.deleteAt(5);
+        assertEquals(Integer.valueOf(5), linkedList.deleteAt(5));
         assertEquals(5, linkedList.size());
         assertFalse(linkedList.isEmpty());
         assertEquals("0 -> 1 -> 2 -> 3 -> 4 -> <end>", linkedList.toString());
 
-        linkedList.deleteAt(LinkedList.POSITION.HEAD);
+        assertEquals(Integer.valueOf(0), linkedList.deleteAt(LinkedList.POSITION.HEAD));
         assertEquals(4, linkedList.size());
         assertFalse(linkedList.isEmpty());
         assertEquals("1 -> 2 -> 3 -> 4 -> <end>", linkedList.toString());
 
-        linkedList.deleteAt(LinkedList.POSITION.TAIL);
+        assertEquals(Integer.valueOf(4), linkedList.deleteAt(LinkedList.POSITION.TAIL));
         assertEquals(3, linkedList.size());
         assertFalse(linkedList.isEmpty());
         assertEquals("1 -> 2 -> 3 -> <end>", linkedList.toString());
 
-        linkedList.deleteAt(1);
+        assertEquals(Integer.valueOf(2), linkedList.deleteAt(1));
         assertEquals(2, linkedList.size());
         assertFalse(linkedList.isEmpty());
         assertEquals("1 -> 3 -> <end>", linkedList.toString());
 
-        linkedList.deleteAt(0);
+        assertEquals(Integer.valueOf(1), linkedList.deleteAt(0));
         assertEquals(1, linkedList.size());
         assertFalse(linkedList.isEmpty());
         assertEquals("3 -> <end>", linkedList.toString());
 
-        linkedList.deleteAt(0);
+        assertEquals(Integer.valueOf(3), linkedList.deleteAt(0));
         assertEquals(0, linkedList.size());
         assertTrue(linkedList.isEmpty());
         assertEquals("", linkedList.toString());

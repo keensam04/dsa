@@ -25,8 +25,8 @@ public interface LinkedList<T> {
 
     void insertAt(final T element, final int index);
 
-    void deleteAt(final POSITION position);
+    T deleteAt(final POSITION position);
 
-    void deleteAt(final int index);
+    T deleteAt(final int index);
 
 }

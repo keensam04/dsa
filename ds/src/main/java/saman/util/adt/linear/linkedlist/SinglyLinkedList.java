@@ -72,27 +72,27 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
         size += 1;
     }
 
-    public void deleteAt(POSITION position) {
+    public T deleteAt(POSITION position) {
         switch(position) {
             case HEAD:
-                deleteAt(0);
-                break;
+                return deleteAt(0);
             case TAIL:
-                deleteAt(size-1);
-                break;
+                return deleteAt(size-1);
+            default:
+                throw new IllegalArgumentException("Position not allowed");
         }
     }
 
-    public void deleteAt(int index) {
+    public T deleteAt(int index) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("index " + index + " not available");
 
+        Node<T> temp = head;
         if (index == 0) {
             head = head.next();
         } else {
             int i = 0;
-            Node prev = head,
-                 temp = head;
+            Node prev = head;
             while (i < index) {
                 prev = temp;
                 temp = temp.next();
@@ -101,6 +101,7 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
             prev.setNext(temp.next());
         }
         size -=1;
+        return temp.data();
     }
 
     @Override
