@@ -7,7 +7,7 @@ import saman.util.adt.linear.stack.StackOverflowException;
 /**
  * Created by I311125 on 7/31/2017.
  */
-public final class TowerOfHanoi_V2 {
+public final class TowerOfHanoi {
 
     public enum TOWER { _1, _2, _3 }
 
@@ -18,13 +18,13 @@ public final class TowerOfHanoi_V2 {
     private Stack<Integer> TOWER_3;
     private int movesCount;
 
-    private TowerOfHanoi_V2(final int numberOfDisks) {
+    private TowerOfHanoi(final int numberOfDisks) {
         this.numberOfDisks = numberOfDisks;
         reset();
     }
 
-    public static TowerOfHanoi_V2 begin(final int numberOfDisks) {
-        return new TowerOfHanoi_V2(numberOfDisks);
+    public static TowerOfHanoi begin(final int numberOfDisks) {
+        return new TowerOfHanoi(numberOfDisks);
     }
 
     public void reset() {
