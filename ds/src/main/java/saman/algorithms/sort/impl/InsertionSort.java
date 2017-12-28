@@ -12,6 +12,7 @@ public class InsertionSort<E extends Comparable> implements Sort<E> {
      * To find the correct position for a card, we compare it with each of the cards already in the hand, from right to left.
      * At all times, the cards held in the left hand are sorted, and these cards were originally the top cards of the pile on the table.
      *
+     * @pseudoCode
      * for j = 2 to A.length
      *   key = A[j]
      *   // Insert A[j] into the sorted sequence A[1..(j-1)].
