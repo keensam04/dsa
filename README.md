@@ -1,2 +1,2 @@
 # sandbox
-Playground for testing code snippets
+Data structures and algorithms implemented in java
