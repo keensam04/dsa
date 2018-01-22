@@ -4,18 +4,16 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by I311125 on 7/29/2017.
  */
-public class SinglyLinkedListTest {
+public class DoublyLinkedListTest {
 
     @Test
     public void testInsertionAndDeletion() {
-        LinkedList<Integer> linkedList = new SinglyLinkedList<>(0);
+        LinkedList<Integer> linkedList = new DoublyLinkedList<>(0);
         assertEquals(1, linkedList.size());
         Arrays.asList(1,2,3,4,5).forEach(element -> linkedList.insertAt(element, element));
         assertEquals(6, linkedList.size());
@@ -27,7 +25,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void testAllInserts() {
-        LinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        LinkedList<Integer> linkedList = new DoublyLinkedList<>();
         assertEquals(0, linkedList.size());
         assertTrue(linkedList.isEmpty());
 
@@ -59,7 +57,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void testAllDeletes() {
-        LinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        LinkedList<Integer> linkedList = new DoublyLinkedList<>();
         Arrays.asList(5,4,3,2,1,0).forEach(element -> linkedList.insert(element));
         assertEquals(6, linkedList.size());
         assertFalse(linkedList.isEmpty());
@@ -98,7 +96,7 @@ public class SinglyLinkedListTest {
 
     @Test
     public void testAllGets() {
-        LinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        LinkedList<Integer> linkedList = new DoublyLinkedList<>();
         Arrays.asList(3,2,1).forEach(element -> linkedList.insert(element));
         assertEquals(3, linkedList.size());
         assertFalse(linkedList.isEmpty());

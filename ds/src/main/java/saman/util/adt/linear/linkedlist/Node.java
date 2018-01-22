@@ -7,6 +7,7 @@ class Node<T> {
 
     private final T data;
     private Node<T> next;
+    private Node<T> previous;
     private volatile int hashCode;
 
     Node(T data) {
@@ -21,6 +22,10 @@ class Node<T> {
         return next;
     }
 
+    Node<T> previous() {
+        return previous;
+    }
+
     void setNext(final Node<T> next) {
         this.next = next;
     }
@@ -30,12 +35,22 @@ class Node<T> {
         return this;
     }
 
+    void setPrevious(final Node<T> previous) {
+        this.previous = previous;
+    }
+
+    Node<T> withPrevious(final Node<T> previous) {
+        setPrevious(previous);
+        return this;
+    }
+
     @Override
     public int hashCode() {
         if (this.hashCode == 0) {
             int hashCode = 17;
             hashCode = 31 * hashCode + data.hashCode();
             hashCode = 31 * hashCode + next.hashCode();
+            hashCode = 31 * hashCode + previous.hashCode();
             this.hashCode = hashCode;
         }
         return this.hashCode;
@@ -48,11 +63,11 @@ class Node<T> {
         if (!(obj instanceof Node))
             return false;
         Node node = (Node)obj;
-        return data.equals(node.data) && next.equals(node.next);
+        return data.equals(node.data) && next.equals(node.next) && previous.equals(node.previous);
     }
 
     @Override
     public String toString() {
-        return String.valueOf(data).concat(" -> ").concat(next != null ? next.toString() : "<end>");
+        return String.valueOf(data).concat(next == null ? "" : " -> ").concat(next != null ? next.toString() : "");
     }
 }

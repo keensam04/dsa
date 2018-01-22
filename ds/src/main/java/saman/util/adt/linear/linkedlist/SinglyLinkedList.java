@@ -28,8 +28,13 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     }
 
     @Override
+    public Node<T> tail() {
+        throw new UnsupportedOperationException("Tail is not tracked in this implementation");
+    }
+
+    @Override
     public T get(int index) {
-        if (index < 0 || index >= size)
+        if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("index " + index + " not available");
 
         int i = 0;
@@ -39,17 +44,6 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
             i++;
         }
         return temp.data();
-    }
-
-    public void insertAt(T element, POSITION position) {
-        switch(position) {
-            case HEAD:
-                insertAt(element, 0);
-                break;
-            case TAIL:
-                insertAt(element, size);
-                break;
-        }
     }
 
     public void insertAt(T element, int index) {
@@ -72,19 +66,8 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
         size += 1;
     }
 
-    public T deleteAt(POSITION position) {
-        switch(position) {
-            case HEAD:
-                return deleteAt(0);
-            case TAIL:
-                return deleteAt(size-1);
-            default:
-                throw new IllegalArgumentException("Position not allowed");
-        }
-    }
-
     public T deleteAt(int index) {
-        if (index < 0 || index >= size)
+        if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("index " + index + " not available");
 
         Node<T> temp = head;
@@ -127,16 +110,4 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     public String toString() {
         return head == null ? "" : head.toString();
     }
-
-    private class Operands<T> {
-
-        private final T element;
-        private final int position;
-
-        private Operands(final T element, final int position) {
-            this.element = element;
-            this.position = position;
-        }
-    }
-
 }
