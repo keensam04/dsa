@@ -1,5 +1,11 @@
 package saman.algorithms.unionfind.impl;
 
+/**
+ * This is an enhancement over QuickUnion.
+ * Each time a union operation is done, the smaller tree is added to the larger tree.
+ * Thus the size of the tree grows slowly resulting in quicker find operation.
+ * @param <T> Type of the elements to be operated on
+ */
 public class WeightedQuickUnion<T extends Comparable> extends QuickUnion<T> {
 
 

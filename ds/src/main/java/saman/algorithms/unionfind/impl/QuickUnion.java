@@ -22,7 +22,7 @@ public class QuickUnion<T extends Comparable> implements UnionFind<T> {
 
     @Override
     public boolean isConnected(int index1, int index2) {
-        return root(index1).element.compareTo(root(index1).element) == 0;
+        return root(index1).element.compareTo(root(index2).element) == 0;
     }
 
     protected IndexedElement root(int index) {
