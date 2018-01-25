@@ -50,6 +50,8 @@ public class QueueUsing2Stacks<T> implements Queue<T> {
                 while (!inbox.isEmpty())
                     outbox.push(inbox.pop());
             }
+            if (outbox.isEmpty())
+                throw new QueueOverflowException("Operation not allowed on emtpy queue");
             return outbox.pop();
         } catch (StackOverflowException e) {
             throw new QueueOverflowException(e);

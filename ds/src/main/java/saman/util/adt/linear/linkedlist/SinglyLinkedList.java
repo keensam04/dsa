@@ -67,7 +67,7 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     }
 
     public T deleteAt(int index) {
-        if (index < 0 || index > size)
+        if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("index " + index + " not available");
 
         Node<T> temp = head;

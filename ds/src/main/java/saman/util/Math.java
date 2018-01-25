@@ -1,4 +1,4 @@
-package saman.problem.misc;
+package saman.util;
 
 public final class Math {
 

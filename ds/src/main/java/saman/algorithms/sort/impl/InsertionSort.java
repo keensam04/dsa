@@ -2,7 +2,9 @@ package saman.algorithms.sort.impl;
 
 import saman.algorithms.sort.Sort;
 
-public class InsertionSort<E extends Comparable> implements Sort<E> {
+import java.util.Comparator;
+
+public class InsertionSort<E> implements Sort<E> {
 
     /**
      * Efficient for sorting a small number of elements.
@@ -29,12 +31,12 @@ public class InsertionSort<E extends Comparable> implements Sort<E> {
      * @param order the order of sorting. allowed values are ASC or DESC
      */
     @Override
-    public void apply(E[] elements, Order order) {
+    public void apply(E[] elements, Order order, Comparator comparator) {
         for (int index = 1; index < elements.length; index++) {
             E key = elements[index];
             int subIndex = index - 1;
             while (subIndex >= 0 && (order.equals(Order.ASC) ?
-                    elements[subIndex].compareTo(key) > 0 : elements[subIndex].compareTo(key) < 0)) {
+                    comparator.compare(elements[subIndex], key) > 0 : comparator.compare(elements[subIndex], key) < 0)) {
                 elements[subIndex+1] = elements[subIndex];
                 subIndex = subIndex - 1;
             }

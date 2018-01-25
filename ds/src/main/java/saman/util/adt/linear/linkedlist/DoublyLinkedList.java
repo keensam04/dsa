@@ -33,7 +33,7 @@ public class DoublyLinkedList<T> implements LinkedList<T> {
 
     @Override
     public T get(int index) {
-        if (index < 0 || index >= size)
+        if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("index " + index + " not available");
 
         Node<T> temp;
@@ -102,7 +102,7 @@ public class DoublyLinkedList<T> implements LinkedList<T> {
 
     @Override
     public T deleteAt(int index) {
-        if (index < 0 || index >= size)
+        if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("index " + index + " not available");
 
         Node<T> temp = null;

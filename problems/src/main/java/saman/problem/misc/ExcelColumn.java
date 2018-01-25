@@ -1,5 +1,7 @@
 package saman.problem.misc;
 
+import saman.util.Math;
+
 public class ExcelColumn {
 
     private static final int NUMBER_OF_ENGLISH_ALPHABETS = 26;

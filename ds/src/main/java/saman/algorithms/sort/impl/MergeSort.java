@@ -3,8 +3,9 @@ package saman.algorithms.sort.impl;
 import saman.algorithms.sort.Sort;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
-public class MergeSort<E extends Comparable> implements Sort<E> {
+public class MergeSort<E> implements Sort<E> {
 
     /**
      * divide-and-conquer
@@ -18,8 +19,8 @@ public class MergeSort<E extends Comparable> implements Sort<E> {
      * @param order the order of sorting. allowed values are ASC or DESC
      */
     @Override
-    public void apply(E[] elements, Order order) {
-        sort(elements, 0, (elements.length - 1), order);
+    public void apply(E[] elements, Order order, Comparator comparator) {
+        sort(elements, 0, (elements.length - 1), order, comparator);
     }
 
     /**
@@ -34,12 +35,12 @@ public class MergeSort<E extends Comparable> implements Sort<E> {
      * @param endIndex end index for the array
      * @param order the order of sorting. allowed values are ASC or DESC
      */
-    private void sort(E[] elements, int startIndex, int endIndex, Order order) {
+    private void sort(E[] elements, int startIndex, int endIndex, Order order, Comparator comparator) {
         if(startIndex < endIndex) {
             int midIndex = (startIndex + endIndex)/2;
-            sort(elements, startIndex, midIndex, order);
-            sort(elements, (midIndex + 1), endIndex, order);
-            merge(elements, startIndex, midIndex, endIndex, order);
+            sort(elements, startIndex, midIndex, order, comparator);
+            sort(elements, (midIndex + 1), endIndex, order, comparator);
+            merge(elements, startIndex, midIndex, endIndex, order, comparator);
         }
     }
 
@@ -67,7 +68,7 @@ public class MergeSort<E extends Comparable> implements Sort<E> {
      * @param endIndex end index for the right array
      * @param order the order of sorting. allowed values are ASC or DESC
      */
-    private void merge(E[] elements, int startIndex, int midIndex, int endIndex, Order order) {
+    private void merge(E[] elements, int startIndex, int midIndex, int endIndex, Order order, Comparator comparator) {
         E[] leftArray = Arrays.copyOfRange(elements, startIndex, (midIndex + 1));
         E[] rightArray = Arrays.copyOfRange(elements, (midIndex + 1), (endIndex + 1));
         E[] leftOverArray = null;
@@ -76,8 +77,8 @@ public class MergeSort<E extends Comparable> implements Sort<E> {
         int leftOverIndex = -1;
         int index = startIndex;
         for (; index <= endIndex; index++) {
-            if (order.equals(Order.ASC) ? leftArray[leftArrayIndex].compareTo(rightArray[rightArrayIndex]) < 0 :
-                    leftArray[leftArrayIndex].compareTo(rightArray[rightArrayIndex]) > 0) {
+            if (order.equals(Order.ASC) ? comparator.compare(leftArray[leftArrayIndex], rightArray[rightArrayIndex]) < 0 :
+                    comparator.compare(leftArray[leftArrayIndex], rightArray[rightArrayIndex]) > 0) {
                 elements[index] = leftArray[leftArrayIndex++];
                 if (leftArrayIndex == leftArray.length) {
                     leftOverArray = rightArray;

@@ -1,13 +1,9 @@
 package saman.problem.misc;
 
-import saman.util.adt.linear.linkedlist.LinkedList;
-import saman.util.adt.linear.linkedlist.SinglyLinkedList;
 import saman.util.adt.linear.queue.Queue;
 import saman.util.adt.linear.queue.QueueImpl;
 import saman.util.adt.linear.queue.QueueOverflowException;
-import saman.util.adt.linear.stack.Stack;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
