@@ -8,6 +8,10 @@ public interface Sort<E> {
 
     void apply(E[] elements, Order order, Comparator comparator);
 
+    default void apply(E[] elements, Comparator comparator) {
+        apply(elements, Order.ASC, comparator);
+    }
+
     default void apply(E[] elements, Order order) {
         if (elements instanceof Comparable[]) {
             apply(elements, order, (object1, object2) -> ((Comparable)object1).compareTo(object2));

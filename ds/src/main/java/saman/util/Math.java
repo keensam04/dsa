@@ -11,4 +11,13 @@ public final class Math {
         }
         return result;
     }
+
+    public static double power(double number, int exponent) {
+        double result = 1.0;
+        for (int i = 0; i < exponent; i++) {
+            result = result * number;
+        }
+        return result;
+    }
+
 }
